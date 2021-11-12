@@ -1,8 +1,10 @@
 # SNEK!
 V1.0
 
-##How to play
+## How to play
+
 Just open snek.gb in an emulator!
 
-##Build instructions
+## Build instructions
+
 Change the file path to correct lcc in the compile.bat and run
