@@ -112,7 +112,7 @@ void newGame() {
 
     clearBG();
 
-    //HIDE_BKG;
+    SHOW_BKG;
     SHOW_SPRITES;
     DISPLAY_ON;
 
@@ -142,10 +142,6 @@ void addBody(){
     newPart.x = headX;
     newPart.y = headY;
     body[l] = newPart;
-
-    //set_sprite_tile(l + 2, snakeTile);
-    //move_sprite(l + 2, headX * 8, headY* 8); 
-
     l++;
 }
 
@@ -178,19 +174,18 @@ void moveSnek() {
         if (i == l - 1){
             set_bkg_tiles(body[i].x - 1, body[i].y - 2, 1, 1, &bgEmptyTile);
         }
-        //move_sprite(i + 2, body[i].x * 8, body[i].y * 8); 
     }
 
 }
 
 void newFood() {
-    foodX = (((uint8_t) rand()) % (uint8_t) 20) + 1;
-    foodY = (((uint8_t) rand()) % (uint8_t) 18) + 2;
+    foodX = (((uint8_t) rand()) % (uint8_t) 20) + 1u;
+    foodY = (((uint8_t) rand()) % (uint8_t) 18) + 2u;
     move_sprite(foodId, foodX * 8, foodY * 8);
 
     int8_t i;
     for (i = 0; i < l; i++){
-        if (foodY == body[i].y && foodX == body[i].y){
+        if (foodX == body[i].x && foodY == body[i].y){
             newFood();
         }
     }
